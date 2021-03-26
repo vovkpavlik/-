@@ -15,6 +15,7 @@ class FlatAdmin(admin.ModelAdmin):
     "new_building",
     "construction_year",
     "town",
+    "owner_pure_phone"
     )
 
     list_filter = ["new_building"]
