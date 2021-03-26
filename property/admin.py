@@ -17,5 +17,7 @@ class FlatAdmin(admin.ModelAdmin):
 
     )
 
+    list_filter = ["new_building"]
+
 
 admin.site.register(Flat, FlatAdmin)
