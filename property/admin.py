@@ -19,6 +19,8 @@ class FlatAdmin(admin.ModelAdmin):
 
     list_filter = ["new_building"]
 
+    raw_id_fields = ("who_liked",)
+
 
 class ComplaintAdmin(admin.ModelAdmin):
     list_display = (

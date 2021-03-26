@@ -50,12 +50,14 @@ class Flat(models.Model):
 
     new_building = models.NullBooleanField("Новостройка", db_index=True)
 
+    who_liked = models.ManyToManyField(User, verbose_name="Кто лайкнул", related_name="who_liked", blank=True)
+
 
 
     def __str__(self):
         return f"{self.town}, {self.address} ({self.price}р.)"
 
-        
+
 class Complaint(models.Model):
     who_complained = models.ForeignKey(User, verbose_name="Кто жаловался", related_name="who_complained", on_delete=models.CASCADE)
     flat_number =   models.ForeignKey(User, verbose_name="Номер квартиры, на которую пожаловались", related_name="flat_number", on_delete=models.CASCADE)
