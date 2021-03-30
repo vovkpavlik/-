@@ -33,7 +33,7 @@ python3 manage.py createsuperuser
 
 10. Перейдите на страничку администрирования. Для этого запустите сервер с помощью консольной команды:
 ```
-py -3 manage.py runserver
+python manage.py runserver
 ```
 и перейдите по [ссылке](http://127.0.0.1:8000/admin/)
 
