@@ -5,8 +5,20 @@ from .models import Complaint
 from .models import Owner
 
 
+class OwnedFlatInline(admin.TabularInline):
+    model = Flat.owned.through
+
+    raw_id_fields = (
+    "owner",
+    )
+
 @admin.register(Flat)
 class FlatAdmin(admin.ModelAdmin):
+    
+    inlines = [
+        OwnedFlatInline,
+    ]
+
     search_fields = ("town", "address", "owner")
 
     readonly_fields = ["created_at"]
