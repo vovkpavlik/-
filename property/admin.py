@@ -8,54 +8,47 @@ from .models import Owner
 class OwnedFlatInline(admin.TabularInline):
     model = Flat.owned.through
 
-    raw_id_fields = (
-    "owner",
-    )
+    raw_id_fields = ["owner"]
+    
 
 @admin.register(Flat)
 class FlatAdmin(admin.ModelAdmin):
     
-    inlines = [
-        OwnedFlatInline,
-    ]
+    inlines = [OwnedFlatInline]
 
-    search_fields = ("town", "address", "owner")
+    search_fields = ["town", "address", "owner"]
 
     readonly_fields = ["created_at"]
 
-    list_display = (
+    list_display = [
     "address",
     "price",
     "new_building",
     "construction_year",
-    "town",
-    )
+    "town"
+    ]
 
     list_filter = ["new_building"]
 
-    raw_id_fields = ("who_liked",)
+    raw_id_fields = ["who_liked"]
 
 
 @admin.register(Complaint)
 class ComplaintAdmin(admin.ModelAdmin):
-    list_display = (
-    "complaint_text",
-    )
-   
-    raw_id_fields = (
+    list_display = ["complaint_text"]
+
+    raw_id_fields = [
         "who_complained",
         "flat_number",
-    )
+    ]
 
 
 @admin.register(Owner)
 class OwnerAdmin(admin.ModelAdmin):
-    list_display = (
+    list_display = [
     "full_name",
     "owners_phonenumber",
     "owner_pure_phone",
-    )
+    ]
 
-    raw_id_fields = (
-        "flats",
-    )
+    raw_id_fields = ["flats"]
