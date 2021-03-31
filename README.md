@@ -20,7 +20,6 @@
 ```
 DEBUG=True
 SECRET_KEY=Введите любой набор цифр или букв
-ALLOWED_HOSTS=[]
 DATABASE=sqlite:///db.sqlite3
 ```
 
